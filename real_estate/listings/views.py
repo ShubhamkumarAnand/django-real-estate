@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . import models
 from . import forms
 
@@ -22,7 +22,13 @@ def listing_retrieve(request, pk):
 
 
 def listing_create(request):
-    form = forms.ListingForm
+    form = forms.ListingForm()
+    if request.method == 'POST':
+        form = forms.ListingForm(request.POST)
+        print(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
     context = {
         "form": form
     }

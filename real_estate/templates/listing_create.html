@@ -1,1 +1,5 @@
-<form>{{form.as_p}}</form>
+<h3>Please Fill the All Fields</h3>
+<form method="post">
+    {% csrf_token%} {{form.as_p}}
+    <button type="submit">Submit</button>
+</form>
