@@ -3,9 +3,10 @@ from . import models
 
 # Create your views here.
 
-def listings_list(request):
+
+def listing_list(request):
     listings = models.Listing.objects.all()
     context = {
         "listings": listings
     }
-    return render(request, 'listings.html', context)
+    return render(request, "listings.html", context)
