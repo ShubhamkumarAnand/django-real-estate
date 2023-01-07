@@ -13,6 +13,6 @@ urlpatterns = [
     path('', listing_list),
     path('listing/<pk>/', listing_retrieve),
     path('add-listing', listing_create),
-    path('listing/<pk>/edit', listing_update),
-    path('listing/<pk>/delete', listing_delete)
+    path('listing/<pk>/edit/', listing_update),
+    path('listing/<pk>/delete/', listing_delete)
 ]

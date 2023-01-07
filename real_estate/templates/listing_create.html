@@ -1,5 +1,9 @@
-<h3>Please Fill the All Fields</h3>
+{% extends "base.html" %} {%block content%}
+<h3 class="text-4xl text-gray-900">Create A New User</h3>
 <form method="post">
     {% csrf_token%} {{form.as_p}}
-    <button type="submit">Submit</button>
+    <button type="submit" class="bg-blue-300 p-2 mt-3 rounded-sm">
+        Submit
+    </button>
 </form>
+{%endblock content%}
