@@ -33,3 +33,17 @@ def listing_create(request):
         "form": form
     }
     return render(request, "listing_create.html", context)
+
+
+def listing_update(request, pk):
+    listing = models.Listing.objects.get(id=pk)
+    form = forms.ListingForm(instance=listing)
+    if request.method == 'POST':
+        form = forms.ListingForm(request.POST, instance=listing)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context = {
+        "form": form
+    }
+    return render(request, "listing_update.html", context)
