@@ -24,7 +24,7 @@ def listing_retrieve(request, pk):
 def listing_create(request):
     form = forms.ListingForm()
     if request.method == 'POST':
-        form = forms.ListingForm(request.POST)
+        form = forms.ListingForm(request.POST, request.FILES)
         print(request.POST)
         if form.is_valid():
             form.save()
@@ -39,7 +39,8 @@ def listing_update(request, pk):
     listing = models.Listing.objects.get(id=pk)
     form = forms.ListingForm(instance=listing)
     if request.method == 'POST':
-        form = forms.ListingForm(request.POST, instance=listing)
+        form = forms.ListingForm(
+            request.POST, instance=listing, files=request.FILES)
         if form.is_valid():
             form.save()
             return redirect('/')

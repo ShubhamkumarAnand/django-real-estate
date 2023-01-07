@@ -1,12 +1,14 @@
-{% extends "base.html" %} {%block content%} {% for listing in listings %}
+{% extends "base.html" %} {%block content%}
 <a href="add-listing" class="text-xl p-2 button bg-blue-300 mb-3 rounded"
     >Create a New Listing</a
 >
+{% for listing in listings %}
 <div class="m-3 px-3 py-2 rounded-sm bg-gray-100">
     <h3 class="text-semibold my-3">{{listing.title}}</h3>
+    <img src="{{listing.image.url}}" alt="{{listing.title}}" class="my-5" />
     <a
         href="listing/{{listing.id}}"
-        class="button bg-blue-300 p-1.5 border-yellow"
+        class="button bg-blue-300 p-1.5 border-yellow my-2"
         >View More</a
     >
 </div>
